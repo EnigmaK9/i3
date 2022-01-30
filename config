@@ -90,16 +90,16 @@ bindsym $mod+a focus parent
 #bindsym $mod+d focus child
 
 # variables for workspace
-set $workspace1 "1: Browser  "
-set $workspace2 "2: Terminal  "
-set $workspace3 "3: Code "
-set $workspace4 "4: PDF "
-set $workspace5 "5: Chat "
-set $workspace6 "6: Email "
-set $workspace7 "7: Videogames "
-set $workspace8 "8: Tor "
+set $workspace1 "1: Browser"
+set $workspace2 "2: Terminal"
+set $workspace3 "3: Code"
+set $workspace4 "4: PDF"
+set $workspace5 "5: Chat"
+set $workspace6 "6: Email"
+set $workspace7 "7: Videogames"
+set $workspace8 "8: Tor"
 set $workspace9 "9: Chess ♘"
-set $workspace10 "10: Music "
+set $workspace10 "10: Music"
 
 # switch to workspace
 bindsym $mod+1 workspace $workspace1 
