@@ -2,7 +2,7 @@
 set $mod Mod4
 
 #font
-font pango: System San Francisco Display 10
+font pango: System San Francisco Display 14
 
 # thin borders
 hide_edge_borders both
@@ -21,7 +21,7 @@ floating_modifier $mod
 bindsym $mod+Return exec i3-sensible-terminal
 
 # kill focused window
-bindsym $mod+Shift+q kill
+bindsym $mod+q kill
 
 # start dmenu (a program launcher)
 bindsym $mod+d exec rofi -show run -lines 3 -eh 2 -width 100 -padding 800 -opacity "85" -bw 0 -bc "$bg-color" -bg "$bg-color" -fg "$text-color" -hlbg "$bg-color" -hlfg "#9575cd" -font "System San Francisco Display 18"
@@ -221,6 +221,7 @@ bar {
 #execute this applications always
 exec_always feh --bg-scale /home/enigma/Pictures/Wallpapers/chessWallpaper.jpg
 exec_always compton -f 
+#exec_always nitrogen --restore
 #exec brave-browser
 #exec code
 #exec evince
