@@ -92,7 +92,7 @@ set $workspace5 "5: Chat"
 set $workspace6 "6: Zoom"
 set $workspace7 "7: Videogames"
 set $workspace8 "8: Tor"
-set $workspace9 "9: Chess"
+set $workspace9 "9: Nautilus"
 set $workspace10 "10: Music"
 
 # switch to workspace
