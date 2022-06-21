@@ -85,15 +85,15 @@ bindsym $mod+a focus parent
 
 # variables for workspace
 set $workspace1 "1: Browser"
-set $workspace2 "2: Terminal "
-set $workspace3 "3: Code"
-set $workspace4 "4: PDF"
-set $workspace5 "5: Chat"
-set $workspace6 "6: Zoom"
-set $workspace7 "7: Videogames"
-set $workspace8 "8: Tor"
-set $workspace9 "9: Nautilus"
-set $workspace10 "10: Music"
+set $workspace2 "2: Code "
+set $workspace3 "3: Terminal"
+set $workspace4 "4: Nautilus"
+set $workspace5 "5: PDF"
+set $workspace6 "6: Discord"
+set $workspace7 "7: Mail"
+set $workspace8 "8"
+set $workspace9 "9"
+set $workspace10 "10"
 
 # switch to workspace
 bindsym $mod+1 workspace $workspace1 
@@ -121,15 +121,12 @@ bindsym $mod+Shift+0 move container to workspace $workspace10
 
 #Assign applications to force open in a certain workspace
 assign [class ="Brave-browser"] $workspace1
-assign [class ="X-terminal-emulator"] $workspace2
-assign [class ="Code"] $workspace3
-assign [class ="Evince"] $workspace4
-assign [class ="TelegramDesktop"] $workspace5
-assign [class ="discord"] $workspace5
-assign [class ="Thunderbird"] $workspace6
-assign [class ="Mupen64Plus-Qt"] $workspace7
-assign [class ="Org.gnome.Nautilus"] $workspace9
-
+assign [class ="Code"] $workspace2
+assign [class ="X-terminal-emulator"] $workspace3
+assign [class ="Org.gnome.Nautilus"] $workspace4
+assign [class ="Evince"] $workspace5
+assign [class ="discord"] $workspace6
+assign [class ="Thunderbird"] $workspace7
 
 
 
@@ -219,7 +216,7 @@ bar {
 #bindsym XF86AudioPrev exec playerctl previous
 
 #execute this applications always
-exec_always feh --bg-scale /home/enigma/Pictures/Wallpapers/chessWallpaper.jpg
+exec_always feh --bg-scale /home/enigma/Pictures/wallpaper.jpg
 exec_always compton -f 
 #exec_always nitrogen --restore
 #exec brave-browser
