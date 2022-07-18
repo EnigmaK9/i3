@@ -183,13 +183,16 @@ client.urgent           $urgent-bg-color    $urgent-bg-color   $text-color      
 
 # bar
 bar {
-	font pango:Inconsolata 10
-	position top
-	tray_output none
-	status_command ~/.config/i3/bumblebee-status/bumblebee-status -m nic disk:root cpu \
-		memory battery date time pasink pasource \
-		-p root.path=/ time.format="%H:%M CW %V" date.format="%a, %b %d %Y" \
-		-t solarized-powerline
+  	position top
+        status_command i3blocks -c /home/enigma/.config/i3/i3blocks.conf
+	colors {
+		background $bg-color
+	    	separator #757575
+		#                  border             background         text
+		focused_workspace  $bg-color          $bg-color          $text-color
+		inactive_workspace $inactive-bg-color $inactive-bg-color $inactive-text-color
+		urgent_workspace   $urgent-bg-color   $urgent-bg-color   $text-color
+	}
 }
 
 
