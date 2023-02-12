@@ -6,8 +6,8 @@ font pango: System San Francisco Display 10
 
 # gaps
 for_window [class="^.*"] border pixel 0
-gaps inner 10
-gaps outer 10
+gaps inner 5
+gaps outer 5
 # thin borders
 hide_edge_borders both
 
@@ -50,9 +50,10 @@ bindsym $mod+Shift+Right move right
 #gaps
 bindsym $mod+s gaps inner current plus 5
 bindsym $mod+Shift+s gaps inner current minus 5
-bindsym $mod+z gaps inner outer plus 5
-bindsym $mod+Shift+z gaps inner outer minus 5
-
+#bindsym $mod+z gaps inner outer plus 5
+bindsym $mod+z gaps outer current plus 5
+#bindsym $mod+Shift+z gaps inner outer minus 5
+bindsym $mod+Shift+z gaps outer current minus 5
 # split in horizontal orientation
 #bindsym $mod+h split h
 bindsym $mod+h focus left
@@ -232,6 +233,7 @@ exec_always feh --bg-scale ~/.config/i3/wallpaper.jpg
 exec_always compton -f
 exec google-chrome
 exec --no-startup-id picom -CGb
+exec --no-startup-id "while true; do xprintidle | grep -q '^[5-9][0-9][0-9][0-9]$' && systemctl suspend; sleep 60; done"
 #exec_always nitrogen --restore
 #exec brave-browser
 #exec code
