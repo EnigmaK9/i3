@@ -11,6 +11,12 @@ gaps outer 5
 # thin borders
 hide_edge_borders both
 
+client.background no
+
+# Transparent terminal
+for_window [class="X-Terminal-emulator"] opacity 0.9;
+
+
 # Use Mouse+$mod to drag floating windows to their wanted position
 floating_modifier $mod
 
@@ -107,7 +113,7 @@ set $workspace4 "4: Nautilus "
 set $workspace5 "5: PDF "
 set $workspace6 "6: Discord "
 set $workspace7 "7: Mail "
-set $workspace8 "8"
+set $workspace8 "8: ChatGPT"
 set $workspace9 "9"
 set $workspace10 "10"
 
@@ -231,11 +237,11 @@ bar {
 #execute this applications always
 exec_always feh --bg-scale ~/.config/i3/wallpaper.jpg
 exec_always compton -f
-exec google-chrome
+#exec google-chrome
 exec --no-startup-id picom -CGb
 exec --no-startup-id "while true; do xprintidle | grep -q '^[5-9][0-9][0-9][0-9]$' && systemctl suspend; sleep 60; done"
 #exec_always nitrogen --restore
-#exec brave-browser
+exec brave-browser
 #exec code
 #exec evince
 #exec telegram-desktop
