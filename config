@@ -107,9 +107,9 @@ bindsym $mod+<F5> exec sudo systemctl restart NetworkManager
 bindsym <F11> fullscreen toggle
 
 # variables for workspace
-set $workspace1 "1: Browser "
+set $workspace1 "1: Terminal "
 set $workspace2 "2: Code "
-set $workspace3 "3: Terminal "
+set $workspace3 "3: Browser "
 set $workspace4 "4: Nautilus "
 set $workspace5 "5: PDF "
 set $workspace6 "6: Discord "
@@ -150,9 +150,9 @@ assign [class ="Org.gnome.Nautilus"] $workspace4
 assign [class ="Evince"] $workspace5
 assign [class ="discord"] $workspace6
 assign [class ="Thunderbird"] $workspace7
-
-
-
+assign [class ="Brave-browser-nightly"] $workspace3
+assign [class ="brave-browser"] $workspace3
+assign [class ="Brave-browser"] $workspace3
 
 
 
