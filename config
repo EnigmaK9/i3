@@ -112,11 +112,11 @@ set $workspace2 "2: Code "
 set $workspace3 "3: Browser "
 set $workspace4 "4: Nautilus "
 set $workspace5 "5: PDF "
-set $workspace6 "6: Discord "
+set $workspace6 "6: LibreOffice "
 set $workspace7 "7: Mail "
 set $workspace8 "8: ChatGPT"
 set $workspace9 "9"
-set $workspace10 "10"
+set $workspace10 "10: Misc "
 
 # switch to workspace
 bindsym $mod+1 workspace $workspace1
@@ -143,10 +143,10 @@ bindsym $mod+Shift+9 move container to workspace $workspace9
 bindsym $mod+Shift+0 move container to workspace $workspace10
 
 #Assign applications to force open in a certain workspace
-assign [class ="Brave-browser"] $workspace1
 assign [class ="Code"] $workspace2
-assign [class ="X-terminal-emulator"] $workspace3
-assign [class ="Org.gnome.Nautilus"] $workspace4
+assign [class ="X-terminal-emulator"] $workspace1
+assign [class ="org.gnome.Terminal"] $workspace1
+assign [class ="Org.gnome.Nautilus"] $workspace1
 assign [class ="Evince"] $workspace5
 assign [class ="discord"] $workspace6
 assign [class ="Thunderbird"] $workspace7
