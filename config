@@ -114,10 +114,10 @@ set $workspace3 "3: Browser "
 set $workspace4 "4: Nautilus "
 set $workspace5 "5: PDF "
 set $workspace6 "6: LibreOffice "
-set $workspace7 "7: Mail "
-set $workspace8 "8: ChatGPT"
-set $workspace9 "9: Pomodoro"
-set $workspace10 "10: Misc "
+set $workspace7 "7: Video "
+set $workspace8 "8: ChatGPT "
+set $workspace9 "9: Pomodoro "
+set $workspace10 "10: Misc "
 
 # switch to workspace
 bindsym $mod+1 workspace $workspace1
@@ -242,14 +242,18 @@ exec_always feh --bg-scale ~/.config/i3/wallpaper.jpg
 exec_always compton -f
 #exec google-chrome
 exec --no-startup-id picom -CGb
-
+exec --no-startup-id redshift -c /home/enigma/.config/i3/redshift.conf -l 0.0:0.0
 exec --no-startup-id "while true; do xprintidle | grep -q '^[5-9][0-9][0-9][0-9]$' && systemctl suspend; sleep 60; done"
 #exec_always nitrogen --restore
-exec brave-browser
+exec terminator
 exec code
-#exec evince
-#exec telegram-desktop
-#exec discord
+exec brave-browser
+exec nautilus
+exec gnome-pomodoro
+exec evince
+exec brave-browser-nightly
+exec telegram-desktop
+exec discord
 #exec thunderbird
 
 
