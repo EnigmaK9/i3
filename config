@@ -149,12 +149,17 @@ assign [class ="X-terminal-emulator"] $workspace1
 assign [class ="org.gnome.Terminal"] $workspace1
 assign [class ="Org.gnome.Nautilus"] $workspace1
 assign [class ="Gnome-terminal"] $workspace1
+assign [class ="brave-browser"] $workspace3
+assign [class ="Thunderbird"] $workspace7
+assign [class ="Brave-browser"] $workspace3
+assign [class ="vlc"] $workspace5
+assign [class ="totem"] $workspace5
+assign [class ="org.gnome.Totem"] $workspace5
 assign [class ="Evince"] $workspace5
 assign [class ="discord"] $workspace6
-assign [class ="Thunderbird"] $workspace7
-assign [class ="Brave-browser-nightly"] $workspace3
-assign [class ="brave-browser"] $workspace3
-assign [class ="Brave-browser"] $workspace3
+assign [class ="Brave-browser-nightly"] $workspace8
+assign [class ="org.gnome.Pomodoro"] $workspace9
+
 
 
 
@@ -246,14 +251,14 @@ exec --no-startup-id redshift -c /home/enigma/.config/i3/redshift.conf -l 0.0:0.
 exec --no-startup-id "while true; do xprintidle | grep -q '^[5-9][0-9][0-9][0-9]$' && systemctl suspend; sleep 60; done"
 #exec_always nitrogen --restore
 exec terminator
-exec code
-exec brave-browser
-exec nautilus
-exec gnome-pomodoro
-exec evince
-exec brave-browser-nightly
-exec telegram-desktop
-exec discord
+#exec code
+#exec brave-browser
+#exec nautilus
+#exec gnome-pomodoro
+#exec evince
+#exec brave-browser-nightly
+#exec telegram-desktop
+#exec discord
 #exec thunderbird
 
 
