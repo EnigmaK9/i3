@@ -75,6 +75,12 @@ bindsym $mod+Shift+v exec --no-startup-id projectM-pulseaudio
 # enter fullscreen mode for the focused container
 bindsym $mod+f fullscreen
 
+# Subir brillo
+bindsym $mod+F11 exec --no-startup-id xbacklight -inc 10
+
+# Bajar brillo
+bindsym $mod+F12 exec --no-startup-id xbacklight -dec 10
+
 
 # change container layout (stacked, tabbed, toggle split)
 #bindsym $mod+s layout stacking
@@ -110,12 +116,12 @@ bindsym <F11> fullscreen toggle
 # variables for workspace
 set $workspace1 "1: Terminal "
 set $workspace2 "2: Code "
-set $workspace3 "3: Browser "
+set $workspace3 "3: Browser "
 set $workspace4 "4: Nautilus "
 set $workspace5 "5: PDF "
 set $workspace6 "6: LibreOffice "
 set $workspace7 "7: Video "
-set $workspace8 "8: ChatGPT "
+set $workspace8 "8: Browser "
 set $workspace9 "9: Pomodoro "
 set $workspace10 "10: Misc "
 
@@ -149,17 +155,18 @@ assign [class ="X-terminal-emulator"] $workspace1
 assign [class ="org.gnome.Terminal"] $workspace1
 assign [class ="Org.gnome.Nautilus"] $workspace1
 assign [class ="Gnome-terminal"] $workspace1
-assign [class ="brave-browser"] $workspace3
-assign [class ="Thunderbird"] $workspace7
 assign [class ="Brave-browser"] $workspace3
+assign [class ="brave-browser"] $workspace3
+assign [class ="Brave-browser-nightly"] $workspace3
+assign [class ="brave-browser-nightly"] $workspace3
 assign [class ="vlc"] $workspace5
 assign [class ="totem"] $workspace5
 assign [class ="org.gnome.Totem"] $workspace5
 assign [class ="Evince"] $workspace5
 assign [class ="discord"] $workspace6
-assign [class ="Brave-browser-nightly"] $workspace8
+assign [class ="Thunderbird"] $workspace7
+assign [class ="Firefox-esr"] $workspace8
 assign [class ="org.gnome.Pomodoro"] $workspace9
-
 
 
 
@@ -248,7 +255,7 @@ exec_always compton -f
 #exec google-chrome
 exec --no-startup-id picom -CGb
 exec --no-startup-id redshift -c /home/enigma/.config/i3/redshift.conf -l 0.0:0.0
-exec --no-startup-id "while true; do xprintidle | grep -q '^[5-9][0-9][0-9][0-9]$' && systemctl suspend; sleep 60; done"
+exec --no-startup-id "while true; do xprintidle | grep -q '^[6-9][0-9][0-9][0-9][0-9]$' && systemctl suspend; sleep 60; done"
 #exec_always nitrogen --restore
 exec terminator
 #exec code
