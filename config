@@ -1,8 +1,8 @@
 # mod
 set $mod Mod4
 
-#font
-font pango: System San Francisco Display 10
+# font
+font pango:System San Francisco Display 10, FontAwesome 10
 
 # gaps
 for_window [class="^.*"] border pixel 0
@@ -54,15 +54,13 @@ bindsym $mod+Shift+Down move down
 bindsym $mod+Shift+Up move up
 bindsym $mod+Shift+Right move right
 
-#gaps
+# gaps
 bindsym $mod+s gaps inner current plus 5
 bindsym $mod+Shift+s gaps inner current minus 5
-#bindsym $mod+z gaps inner outer plus 5
 bindsym $mod+z gaps outer current plus 5
-#bindsym $mod+Shift+z gaps inner outer minus 5
 bindsym $mod+Shift+z gaps outer current minus 5
+
 # split in horizontal orientation
-#bindsym $mod+h split h
 bindsym $mod+h focus left
 bindsym $mod+Shift+h focus left 30
 
@@ -81,9 +79,7 @@ bindsym $mod+F11 exec --no-startup-id xbacklight -inc 10
 # Bajar brillo
 bindsym $mod+F12 exec --no-startup-id xbacklight -dec 10
 
-
 # change container layout (stacked, tabbed, toggle split)
-#bindsym $mod+s layout stacking
 bindsym $mod+w layout tabbed
 bindsym $mod+e layout toggle split
 
@@ -96,17 +92,14 @@ bindsym $mod+space focus mode_toggle
 # focus the parent container
 bindsym $mod+a focus parent
 
-# focus the child container
-#bindsym $mod+d focus child
-
 # music player
 bindsym $mod+b exec --no-startup-id mocp -r
 
-#split toggle and all set
+# split toggle and all set
 bindsym $mod+t split toggle
 bindsym $mod+Shift+t gaps inner all set 10; gaps outer all set 10
 
-#F4
+# F4
 bindsym $mod+<F1> exec --no-startup-id echo "help" > /dev/null
 bindsym $mod+<F3> exec sudo systemctl exec arandr
 bindsym $mod+<F4> exec sudo systemctl suspend
@@ -149,26 +142,24 @@ bindsym $mod+Shift+8 move container to workspace $workspace8
 bindsym $mod+Shift+9 move container to workspace $workspace9
 bindsym $mod+Shift+0 move container to workspace $workspace10
 
-#Assign applications to force open in a certain workspace
-assign [class ="Code"] $workspace2
-assign [class ="X-terminal-emulator"] $workspace1
-assign [class ="org.gnome.Terminal"] $workspace1
-assign [class ="Org.gnome.Nautilus"] $workspace1
-assign [class ="Gnome-terminal"] $workspace1
-assign [class ="Brave-browser"] $workspace3
-assign [class ="brave-browser"] $workspace3
-assign [class ="Brave-browser-nightly"] $workspace3
-assign [class ="brave-browser-nightly"] $workspace3
-assign [class ="vlc"] $workspace5
-assign [class ="totem"] $workspace5
-assign [class ="org.gnome.Totem"] $workspace5
-assign [class ="Evince"] $workspace5
-assign [class ="discord"] $workspace6
-assign [class ="Thunderbird"] $workspace7
-assign [class ="Firefox-esr"] $workspace8
-assign [class ="org.gnome.Pomodoro"] $workspace9
-
-
+# Assign applications to force open in a certain workspace
+assign [class="Code"] $workspace2
+assign [class="X-terminal-emulator"] $workspace1
+assign [class="org.gnome.Terminal"] $workspace1
+assign [class="Org.gnome.Nautilus"] $workspace1
+assign [class="Gnome-terminal"] $workspace1
+assign [class="Brave-browser"] $workspace3
+assign [class="brave-browser"] $workspace3
+assign [class="Brave-browser-nightly"] $workspace3
+assign [class="brave-browser-nightly"] $workspace3
+assign [class="vlc"] $workspace5
+assign [class="totem"] $workspace5
+assign [class="org.gnome.Totem"] $workspace5
+assign [class="Evince"] $workspace5
+assign [class="discord"] $workspace6
+assign [class="Thunderbird"] $workspace7
+assign [class="Firefox-esr"] $workspace8
+assign [class="org.gnome.Pomodoro"] $workspace9
 
 # reload the configuration file
 bindsym $mod+Shift+c reload
@@ -179,31 +170,31 @@ bindsym $mod+Shift+e exec "i3-nagbar -t warning -m 'You pressed the exit shortcu
 
 # resize window (you can also use the mouse for that)
 mode "resize" {
-        # These bindings trigger as soon as you enter the resize mode
+    # These bindings trigger as soon as you enter the resize mode
 
-        # Pressing left will shrink the window’s width.
-        # Pressing right will grow the window’s width.
-        # Pressing up will shrink the window’s height.
-        # Pressing down will grow the window’s height.
-        bindsym j resize shrink width 10 px or 10 ppt
-        bindsym k resize grow height 10 px or 10 ppt
-        bindsym l resize shrink height 10 px or 10 ppt
-        bindsym semicolon resize grow width 10 px or 10 ppt
+    # Pressing left will shrink the window’s width.
+    # Pressing right will grow the window’s width.
+    # Pressing up will shrink the window’s height.
+    # Pressing down will grow the window’s height.
+    bindsym j resize shrink width 10 px or 10 ppt
+    bindsym k resize grow height 10 px or 10 ppt
+    bindsym l resize shrink height 10 px or 10 ppt
+    bindsym semicolon resize grow width 10 px or 10 ppt
 
-        # same bindings, but for the arrow keys
-        bindsym Left resize shrink width 10 px or 10 ppt
-        bindsym Down resize grow height 10 px or 10 ppt
-        bindsym Up resize shrink height 10 px or 10 ppt
-        bindsym Right resize grow width 10 px or 10 ppt
+    # same bindings, but for the arrow keys
+    bindsym Left resize shrink width 10 px or 10 ppt
+    bindsym Down resize grow height 10 px or 10 ppt
+    bindsym Up resize shrink height 10 px or 10 ppt
+    bindsym Right resize grow width 10 px or 10 ppt
 
-        # back to normal: Enter or Escape
-        bindsym Return mode "default"
-        bindsym Escape mode "default"
+    # back to normal: Enter or Escape
+    bindsym Return mode "default"
+    bindsym Escape mode "default"
 }
-#resize mode
+# resize mode
 bindsym $mod+r mode "resize"
 
-set $bg-color 	         #2f343f
+set $bg-color            #2f343f
 set $inactive-bg-color   #2f343f
 set $text-color          #f3f4f5
 set $inactive-text-color #676E7D
@@ -216,27 +207,23 @@ client.unfocused        $inactive-bg-color  $inactive-bg-color $inactive-text-co
 client.focused_inactive $inactive-bg-color  $inactive-bg-color $inactive-text-color #00ff00
 client.urgent           $urgent-bg-color    $urgent-bg-color   $text-color          #00ff00
 
-
-
 # bar
 bar {
-	font pango:System San Francisco Display 10
-	position bottom
-	tray_output none
-	status_command ~/.config/i3/bumblebee-status/bumblebee-status -m nic disk:root cpu \
-		memory battery date time pasink pasource \
-		-p root.path=/ time.format="%H:%M CW %V" date.format="%d %B %Y" \
-		-t dracula-powerline
+    font pango:System San Francisco Display 10, FontAwesome 10
+    position bottom
+    tray_output none
+    status_command ~/.config/i3/bumblebee-status/bumblebee-status -m nic disk:root cpu \
+        memory battery date time pasink pasource \
+        -p root.path=/ time.format="%H:%M CW %V" date.format="%d %B %Y" \
+        -t dracula-powerline
 }
 
-
-
 # Pulse Audio controls
-# bindsym XF86AudioRaiseVolume exec --no-startup-id pactl set-sink-volume 0 +5% #increase sound volume
-# bindsym XF86AudioLowerVolume exec --no-startup-id pactl set-sink-volume 0 -5% #decrease sound volume
+# bindsym XF86AudioRaiseVolume exec --no-startup-id pactl set-sink-volume 0 +5% # increase sound volume
+# bindsym XF86AudioLowerVolume exec --no-startup-id pactl set-sink-volume 0 -5% # decrease sound volume
 # bindsym XF86AudioMute exec --no-startup-id pactl set-sink-mute 0 toggle # mute sound
 
-# Sreen brightness controls
+# Screen brightness controls
 # bindsym XF86MonBrightnessUp exec xbacklight -inc 20 # increase screen brightness
 # bindsym XF86MonBrightnessDown exec xbacklight -dec 20 # decrease screen brightness
 
@@ -244,28 +231,16 @@ bar {
 # bindsym XF86TouchpadToggle exec /some/path/toggletouchpad.sh # toggle touchpad
 
 # Media player controls
-#bindsym XF86AudioPlay exec playerctl play
-#bindsym XF86AudioPause exec playerctl pause
-#bindsym XF86AudioNext exec playerctl next
-#bindsym XF86AudioPrev exec playerctl previous
+# bindsym XF86AudioPlay exec playerctl play
+# bindsym XF86AudioPause exec playerctl pause
+# bindsym XF86AudioNext exec playerctl next
+# bindsym XF86AudioPrev exec playerctl previous
 
-#execute this applications always
+# execute these applications always
 exec_always feh --bg-scale ~/.config/i3/wallpaper.jpg
 exec_always compton -f
-#exec google-chrome
 exec --no-startup-id picom -CGb
 exec --no-startup-id redshift -c /home/enigma/.config/i3/redshift.conf -l 0.0:0.0
 exec --no-startup-id "while true; do xprintidle | grep -q '^[6-9][0-9][0-9][0-9][0-9]$' && systemctl suspend; sleep 60; done"
-#exec_always nitrogen --restore
 exec terminator
-#exec code
-#exec brave-browser
-#exec nautilus
-#exec gnome-pomodoro
-#exec evince
-#exec brave-browser-nightly
-#exec telegram-desktop
-#exec discord
-#exec thunderbird
-
 
