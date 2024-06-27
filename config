@@ -241,6 +241,11 @@ exec_always feh --bg-scale ~/.config/i3/wallpaper.jpg
 exec_always compton -f
 exec --no-startup-id picom -CGb
 exec --no-startup-id redshift -c /home/enigma/.config/i3/redshift.conf -l 0.0:0.0
-exec --no-startup-id "while true; do xprintidle | grep -q '^[6-9][0-9][0-9][0-9][0-9]$' && systemctl suspend; sleep 60; done"
+
+
+exec --no-startup-id "while true; do xprintidle | grep -q '^[1-9][0-9][0-9][0-9][0-9][0-9]$' && systemctl suspend; sleep 360; done"
+
+
+
 exec terminator
 
