@@ -1,0 +1,5 @@
+# Media player controls with Mod key
+bindsym $mod+Shift+p exec playerctl play-pause
+bindsym $mod+Shift+n exec playerctl next
+bindsym $mod+Shift+b exec playerctl previous
+
