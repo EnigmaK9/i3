@@ -1,112 +1,87 @@
-# mod
+# Modifier key (Windows key)
 set $mod Mod4
 
-# font
+# Fonts
 font pango:System San Francisco Display 10, FontAwesome 10
 
-# gaps
-for_window [class="^.*"] border pixel 0
+# Gaps between windows
 gaps inner 5
 gaps outer 5
-# thin borders
 hide_edge_borders both
 
-client.background no
-
-# Transparent terminal
+# Transparent terminals
 for_window [class="X-Terminal-emulator"] opacity 0.9;
 for_window [class="Gnome-terminal"] opacity 0.8;
 for_window [class="gnome-terminal-server"] opacity 0.8;
 
-# Use Mouse+$mod to drag floating windows to their wanted position
-floating_modifier $mod
-
-# start a terminal
+# Start terminal
 bindsym $mod+Return exec i3-sensible-terminal
 
-# kill focused window
+# Kill focused window
 bindsym $mod+q kill
 
-# start dmenu (a program launcher)
+# Launch rofi (application launcher)
 bindsym $mod+d exec rofi -show run -lines 3 -eh 2 -width 90 -padding 800 -opacity "85" -bw 0 -bc "$bg-color" -bg "$bg-color" -fg "$text-color" -hlbg "$bg-color" -hlfg "#9575cd" -font "Monospace Regular 16"
 
-# change focus
+# Window navigation
 bindsym $mod+j focus left
 bindsym $mod+k focus down
 bindsym $mod+l focus up
 bindsym $mod+semicolon focus right
 
-# alternatively, you can use the cursor keys:
+# Arrow keys navigation
 bindsym $mod+Left focus left
 bindsym $mod+Down focus down
 bindsym $mod+Up focus up
 bindsym $mod+Right focus right
 
-# move focused window
+# Move focused window
 bindsym $mod+Shift+j move left
 bindsym $mod+Shift+k move down
 bindsym $mod+Shift+l move up
 bindsym $mod+Shift+semicolon move right
 
-# alternatively, you can use the cursor keys:
+# Arrow keys window movement
 bindsym $mod+Shift+Left move left
 bindsym $mod+Shift+Down move down
 bindsym $mod+Shift+Up move up
 bindsym $mod+Shift+Right move right
 
-# gaps
-bindsym $mod+s gaps inner current plus 5
-bindsym $mod+Shift+s gaps inner current minus 5
+# Control gaps between windows
+bindsym $mod+g gaps inner current plus 5
+bindsym $mod+Shift+g gaps inner current minus 5
 bindsym $mod+z gaps outer current plus 5
 bindsym $mod+Shift+z gaps outer current minus 5
 
-# split in horizontal orientation
-bindsym $mod+h focus left
-bindsym $mod+Shift+h focus left 30
+# Stacking windows (requested fix)
+bindsym $mod+s layout stacking
 
-# split in vertical orientation
-#bindsym $mod+v split v
-# music player
+# Toggle vertical split
+bindsym $mod+e layout toggle split
+
+# Toggle fullscreen
+bindsym $mod+f fullscreen toggle
+
+# Toggle floating
+bindsym $mod+Shift+space floating toggle
+
+# Toggle focus between floating and tiled windows
+bindsym $mod+space focus mode_toggle
+
+# Adjust brightness
+bindsym $mod+F11 exec --no-startup-id xbacklight -inc 10
+bindsym $mod+F12 exec --no-startup-id xbacklight -dec 10
+
+# Music player
 bindsym $mod+v exec @term -e vis
 bindsym $mod+Shift+v exec --no-startup-id projectM-pulseaudio
 
-# enter fullscreen mode for the focused container
-bindsym $mod+f fullscreen
+# Reload/restart i3
+bindsym $mod+Shift+c reload
+bindsym $mod+Shift+r restart
+bindsym $mod+Shift+e exec "i3-nagbar -t warning -m 'Exit i3?' -b 'Yes' 'i3-msg exit'"
 
-# Subir brillo
-bindsym $mod+F11 exec --no-startup-id xbacklight -inc 10
-
-# Bajar brillo
-bindsym $mod+F12 exec --no-startup-id xbacklight -dec 10
-
-# change container layout (stacked, tabbed, toggle split)
-bindsym $mod+w layout tabbed
-bindsym $mod+e layout toggle split
-
-# toggle tiling / floating
-bindsym $mod+Shift+space floating toggle
-
-# change focus between tiling / floating windows
-bindsym $mod+space focus mode_toggle
-
-# focus the parent container
-bindsym $mod+a focus parent
-
-# music player
-bindsym $mod+b exec --no-startup-id mocp -r
-
-# split toggle and all set
-bindsym $mod+t split toggle
-bindsym $mod+Shift+t gaps inner all set 10; gaps outer all set 10
-
-# F4
-bindsym $mod+<F1> exec --no-startup-id echo "help" > /dev/null
-bindsym $mod+<F3> exec sudo systemctl exec arandr
-bindsym $mod+<F4> exec sudo systemctl suspend
-bindsym $mod+<F5> exec sudo systemctl restart NetworkManager
-bindsym <F11> fullscreen toggle
-
-# variables for workspace
+# Workspace definitions
 set $workspace1 "1: Terminal "
 set $workspace2 "2: Code "
 set $workspace3 "3: Browser "
@@ -118,7 +93,7 @@ set $workspace8 "8: Browser "
 set $workspace9 "9: Pomodoro "
 set $workspace10 "10: Misc "
 
-# switch to workspace
+# Switch workspaces
 bindsym $mod+1 workspace $workspace1
 bindsym $mod+2 workspace $workspace2
 bindsym $mod+3 workspace $workspace3
@@ -130,7 +105,7 @@ bindsym $mod+8 workspace $workspace8
 bindsym $mod+9 workspace $workspace9
 bindsym $mod+0 workspace $workspace10
 
-# move focused container to workspace
+# Move windows to workspaces
 bindsym $mod+Shift+1 move container to workspace $workspace1
 bindsym $mod+Shift+2 move container to workspace $workspace2
 bindsym $mod+Shift+3 move container to workspace $workspace3
@@ -142,110 +117,42 @@ bindsym $mod+Shift+8 move container to workspace $workspace8
 bindsym $mod+Shift+9 move container to workspace $workspace9
 bindsym $mod+Shift+0 move container to workspace $workspace10
 
-# Assign applications to force open in a certain workspace
+# Assign applications to workspaces (force open)
 assign [class="Code"] $workspace2
-assign [class="X-terminal-emulator"] $workspace1
-assign [class="org.gnome.Terminal"] $workspace1
-assign [class="Org.gnome.Nautilus"] $workspace1
 assign [class="Gnome-terminal"] $workspace1
 assign [class="Brave-browser"] $workspace3
-assign [class="brave-browser"] $workspace3
-assign [class="Brave-browser-nightly"] $workspace3
-assign [class="brave-browser-nightly"] $workspace3
-assign [class="vlc"] $workspace5
-assign [class="totem"] $workspace5
-assign [class="org.gnome.Totem"] $workspace5
-assign [class="Evince"] $workspace5
-assign [class="discord"] $workspace6
-assign [class="Thunderbird"] $workspace7
 assign [class="Firefox-esr"] $workspace8
-assign [class="org.gnome.Pomodoro"] $workspace9
+assign [class="discord"] $workspace6
 
-# reload the configuration file
-bindsym $mod+Shift+c reload
-# restart i3 inplace (preserves your layout/session, can be used to upgrade i3)
-bindsym $mod+Shift+r restart
-# exit i3 (logs you out of your X session)
-bindsym $mod+Shift+e exec "i3-nagbar -t warning -m 'You pressed the exit shortcut. Do you really want to exit i3? This will end your X session.' -b 'Yes, exit i3' 'i3-msg exit'"
-
-# resize window (you can also use the mouse for that)
+# Resize mode
 mode "resize" {
-    # These bindings trigger as soon as you enter the resize mode
-
-    # Pressing left will shrink the window’s width.
-    # Pressing right will grow the window’s width.
-    # Pressing up will shrink the window’s height.
-    # Pressing down will grow the window’s height.
     bindsym j resize shrink width 10 px or 10 ppt
     bindsym k resize grow height 10 px or 10 ppt
     bindsym l resize shrink height 10 px or 10 ppt
     bindsym semicolon resize grow width 10 px or 10 ppt
-
-    # same bindings, but for the arrow keys
-    bindsym Left resize shrink width 10 px or 10 ppt
-    bindsym Down resize grow height 10 px or 10 ppt
-    bindsym Up resize shrink height 10 px or 10 ppt
-    bindsym Right resize grow width 10 px or 10 ppt
-
-    # back to normal: Enter or Escape
     bindsym Return mode "default"
     bindsym Escape mode "default"
 }
-# resize mode
 bindsym $mod+r mode "resize"
 
-set $bg-color            #2f343f
-set $inactive-bg-color   #2f343f
-set $text-color          #f3f4f5
-set $inactive-text-color #676E7D
-set $urgent-bg-color     #E53935
+# Colors
+set $bg-color #2f343f
+set $text-color #f3f4f5
 
-# window colors
-#                       border              background         text                 indicator
-client.focused          $bg-color           $bg-color          $text-color          #00ff00
-client.unfocused        $inactive-bg-color  $inactive-bg-color $inactive-text-color #00ff00
-client.focused_inactive $inactive-bg-color  $inactive-bg-color $inactive-text-color #00ff00
-client.urgent           $urgent-bg-color    $urgent-bg-color   $text-color          #00ff00
-
-# bar
+# Bar configuration
 bar {
     font pango:System San Francisco Display 10, FontAwesome 10
     position bottom
     tray_output none
-    status_command ~/.config/i3/bumblebee-status/bumblebee-status -m nic disk:root cpu \
-        memory battery date time pasink pasource \
-        -p root.path=/ time.format="%H:%M CW %V" date.format="%d %B %Y" \
-        -t dracula-powerline
+    status_command ~/.config/i3/bumblebee-status/bumblebee-status -m nic disk:root cpu memory battery date time pasink pasource -p root.path=/ time.format="%H:%M CW %V" date.format="%d %B %Y" -t dracula-powerline
 }
 
-# Pulse Audio controls
-# bindsym XF86AudioRaiseVolume exec --no-startup-id pactl set-sink-volume 0 +5% # increase sound volume
-# bindsym XF86AudioLowerVolume exec --no-startup-id pactl set-sink-volume 0 -5% # decrease sound volume
-# bindsym XF86AudioMute exec --no-startup-id pactl set-sink-mute 0 toggle # mute sound
-
-# Screen brightness controls
-# bindsym XF86MonBrightnessUp exec xbacklight -inc 20 # increase screen brightness
-# bindsym XF86MonBrightnessDown exec xbacklight -dec 20 # decrease screen brightness
-
-# Touchpad controls
-# bindsym XF86TouchpadToggle exec /some/path/toggletouchpad.sh # toggle touchpad
-
-# Media player controls
-# bindsym XF86AudioPlay exec playerctl play
-# bindsym XF86AudioPause exec playerctl pause
-# bindsym XF86AudioNext exec playerctl next
-# bindsym XF86AudioPrev exec playerctl previous
-
-# execute these applications always
+# Startup programs
 exec_always feh --bg-scale ~/.config/i3/wallpaper.jpg
 exec_always compton -f
 exec --no-startup-id picom -CGb
-exec --no-startup-id redshift -c /home/enigma/.config/i3/redshift.conf -l 0.0:0.0
-
-
-exec --no-startup-id "while true; do xprintidle | grep -q '^[1-9][0-9][0-9][0-9][0-9][0-9]$' && systemctl suspend; sleep 360; done"
-
-
-
+exec --no-startup-id redshift -c ~/.config/i3/redshift.conf -l 0.0:0.0
 exec terminator
 
+# Auto suspend on idle (optional, careful usage!)
+exec --no-startup-id "while true; do xprintidle | grep -q '^[1-9][0-9]\{5\}$' && systemctl suspend; sleep 360; done"
